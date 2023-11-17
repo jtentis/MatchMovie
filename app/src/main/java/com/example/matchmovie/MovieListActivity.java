@@ -73,7 +73,7 @@ public class MovieListActivity extends AppCompatActivity {
                     Log.v("tag", "the response" + response.body().toString());
                     List<MovieModel> movies = new ArrayList<>(response.body().getMovies());
                     for (MovieModel movie: movies){
-                        Log.v("tag", "A data de lançamento " + movie.getRelease_date());
+                        Log.v("tag", "A data de lançamento foi: " + movie.getRelease_date());
                     }
                 }
                 else{

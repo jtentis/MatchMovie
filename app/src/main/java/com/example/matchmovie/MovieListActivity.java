@@ -41,7 +41,7 @@ public class MovieListActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GetRetrofitResponse();
+                GetRetrofitResponseAccordingToId();
             }
         });
     }
@@ -51,7 +51,7 @@ public class MovieListActivity extends AppCompatActivity {
         Call<MovieSearchResponse> responseCall = movieApi
                 .searchMovie(
                         Credentials.API_KEY,
-                        "Oppenheimer",
+                        "As Vantagens",
                         1
                 );
         responseCall.enqueue(new Callback<MovieSearchResponse>() {
@@ -62,6 +62,7 @@ public class MovieListActivity extends AppCompatActivity {
                     List<MovieModel> movies = new ArrayList<>(response.body().getMovies());
                     for (MovieModel movie: movies){
                         Log.v("tag", "A data de lançamento foi " + movie.getRelease_date());
+//                        Log.v("tag", "A data de lançamento foi " + movie.getTitle());
                     }
                 }
                 else{
@@ -80,4 +81,32 @@ public class MovieListActivity extends AppCompatActivity {
         });
     }
 
+    private void GetRetrofitResponseAccordingToId(){
+        MovieApi movieApi = Servicey.getMovieApi();
+        Call<MovieModel> responseCall = movieApi
+                .getMovie(
+                        550,
+                        Credentials.API_KEY);
+        responseCall.enqueue(new Callback<MovieModel>() {
+            @Override
+            public void onResponse(Call<MovieModel> call, Response<MovieModel> response) {
+                if(response.code()==200){
+                    MovieModel movie = response.body();
+                    Log.v("tag", "O titulo do filme é: "+movie.getTitle());
+                }
+                else{
+                    try {
+                        Log.v("tag", "Erro!" +response.errorBody().string());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MovieModel> call, Throwable t) {
+
+            }
+        });
+    }
 }

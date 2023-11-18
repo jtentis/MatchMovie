@@ -10,9 +10,12 @@ import com.example.matchmovie.request.Servicey;
 import com.example.matchmovie.response.MovieSearchResponse;
 import com.example.matchmovie.utils.Credentials;
 import com.example.matchmovie.utils.MovieApi;
+import com.example.matchmovie.viewmodels.MovieListViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -33,15 +36,31 @@ public class MovieListActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     Button btn;
+    //ViewModel
+    private MovieListViewModel movieListViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btn = findViewById(R.id.button);
+
+        movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GetRetrofitResponseAccordingToId();
+            }
+        });
+    }
+
+    //Observer
+    private void ObserveAnyChange(){
+        movieListViewModel.getMovies().observe(this, new Observer<List<MovieModel>>() {
+            @Override
+            public void onChanged(List<MovieModel> movieModels) {
+                //Observando mudanças de dados
+
             }
         });
     }

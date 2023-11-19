@@ -34,6 +34,7 @@ import retrofit2.Response;
 
 public class MovieListActivity extends AppCompatActivity {
 
+
     private ActivityMainBinding binding;
 
     Button btn;
@@ -52,6 +53,7 @@ public class MovieListActivity extends AppCompatActivity {
 
         //testando o método
         btn.setOnClickListener(new View.OnClickListener() {
+            //mostrando apenas resultados da pagina 1 com a palvara 'fast'
             @Override
             public void onClick(View v) {
                 searchMovieApi("Fast", 1);

@@ -54,7 +54,7 @@ public class MovieApiClient {
                 //Cancelando a chamada do retrofit
                 myHandler.cancel(true);
             }
-        }, 5000, TimeUnit.MICROSECONDS);
+        }, 3000, TimeUnit.MILLISECONDS);
     }
     //temos 2 tipos de busca por query: por ID e por nome
     private class RetrieveMoviesRunnable implements Runnable{

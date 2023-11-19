@@ -37,6 +37,8 @@ public class MovieApiClient {
     public LiveData<List<MovieModel>> getMovies(){
         return mMovies;
     }
+
+    //1- usaremos esse método para chamar entre as classes
     public void searchMoviesApi(String query, int pageNumber){
         if(retrieveMoviesRunnable != null){
             retrieveMoviesRunnable = null;

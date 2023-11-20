@@ -22,6 +22,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,6 +42,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     //recylcer view
     private RecyclerView recyclerView;
     private MovieRecyclerView movieRecyclerAdapter;
+    GridLayoutManager gridLayoutManager;
 
 //    private ActivityMainBinding binding;
 
@@ -85,7 +87,8 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     private void ConfigureRecyclerView(){
         movieRecyclerAdapter = new MovieRecyclerView(this);
         recyclerView.setAdapter(movieRecyclerAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
     }
 
     @Override
@@ -161,5 +164,4 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 //            }
 //        });
 //    }
-
 }

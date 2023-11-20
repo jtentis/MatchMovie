@@ -49,4 +49,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$2.5.0-alpha02")
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$2.5.0-alpha02")
+    // Biblioteca para display de imagens Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

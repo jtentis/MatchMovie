@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.matchmovie.adapters.MovieRecyclerView;
+import com.example.matchmovie.adapters.OnMovieListener;
 import com.example.matchmovie.models.MovieModel;
 import com.example.matchmovie.request.Servicey;
 import com.example.matchmovie.response.MovieSearchResponse;
@@ -20,6 +22,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.matchmovie.databinding.ActivityMainBinding;
 
@@ -32,39 +36,27 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MovieListActivity extends AppCompatActivity {
+public class MovieListActivity extends AppCompatActivity implements OnMovieListener {
 
+    //recylcer view
+    private RecyclerView recyclerView;
+    private MovieRecyclerView movieRecyclerAdapter;
 
-    private ActivityMainBinding binding;
+//    private ActivityMainBinding binding;
 
-    Button btn;
     //ViewModel
     private MovieListViewModel movieListViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn = findViewById(R.id.button);
+        recyclerView = findViewById(R.id.recyclerView);
 
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
 
-        //chamando o observer
+        ConfigureRecyclerView();
         ObserveAnyChange();
-
-        //testando o método
-        btn.setOnClickListener(new View.OnClickListener() {
-            //mostrando apenas resultados da pagina 1 com a palvara 'fast'
-            @Override
-            public void onClick(View v) {
-                searchMovieApi("Fast", 1);
-            }
-        });
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                GetRetrofitResponseAccordingToId();
-//            }
-//        });
+        searchMovieApi("Action", 1);
     }
 
     //Observer
@@ -75,7 +67,8 @@ public class MovieListActivity extends AppCompatActivity {
                 //Observando mudanças de dados
                 if(movieModels != null){
                     for(MovieModel movieModel: movieModels){
-                        Log.v("tag", "onChanged: "+movieModel.getTitle());
+                        Log.v("tag", "Título: "+movieModel.getTitle());
+                        movieRecyclerAdapter.setmMovies(movieModels);
                     }
                }
             }
@@ -86,6 +79,23 @@ public class MovieListActivity extends AppCompatActivity {
     //4- chamando o método na main activity
     private void searchMovieApi(String query, int pageNumber){
         movieListViewModel.searchMovieApi(query, pageNumber);
+    }
+
+    //5- inicializando o recycler view e adicionando dados a ele
+    private void ConfigureRecyclerView(){
+        movieRecyclerAdapter = new MovieRecyclerView(this);
+        recyclerView.setAdapter(movieRecyclerAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    public void onMovieClick(int position) {
+
+    }
+
+    @Override
+    public void onCategoryClick(String category) {
+
     }
 
 

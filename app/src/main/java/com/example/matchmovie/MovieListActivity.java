@@ -108,6 +108,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
                         query,
                         1
                 );
+
                 return false;
             }
 

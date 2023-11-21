@@ -16,6 +16,7 @@ import com.example.matchmovie.utils.MovieApi;
 import com.example.matchmovie.viewmodels.MovieListViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.lifecycle.Observer;
@@ -87,6 +88,16 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         recyclerView.setAdapter(movieRecyclerAdapter);
         gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
+
+        //paginação
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                if(!recyclerView.canScrollVertically(1)){
+                    movieListViewModel.searchNextPage();
+                }
+            }
+        });
     }
 
     @Override

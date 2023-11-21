@@ -13,6 +13,11 @@
         <!-- Status bar color. -->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:editTextColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+
         <!-- Customize your theme here. -->
     </style>
 </resources>

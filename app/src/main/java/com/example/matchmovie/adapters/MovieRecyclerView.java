@@ -36,7 +36,7 @@ public class MovieRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHol
         ((MovieViewHolder)holder).release_date.setText(mMovies.get(i).getRelease_date());
 //        ((MovieViewHolder)holder).duration.setText(mMovies.get(i).getRuntime());
 //
-        ((MovieViewHolder)holder).ratingBar.setRating(mMovies.get(i).getVote_average());
+        ((MovieViewHolder)holder).ratingBar.setRating(mMovies.get(i).getVote_average()/2);
         Glide.with(holder.itemView.getContext())
                 .load("https://image.tmdb.org/t/p/w500/"+mMovies.get(i).getPoster_path())
                 .into(((MovieViewHolder)holder).imageView);

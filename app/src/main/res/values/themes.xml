@@ -17,7 +17,6 @@
         <item name="colorControlNormal">@color/white</item>
         <item name="android:editTextColor">@color/white</item>
         <item name="android:textColorHint">@color/white</item>
-
         <!-- Customize your theme here. -->
     </style>
 </resources>

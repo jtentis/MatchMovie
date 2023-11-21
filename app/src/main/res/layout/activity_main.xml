@@ -32,7 +32,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/bg_white_rounded"
-        android:clickable="true"
-        app:queryHint="Procurando por algum filme?" />
+        android:theme="@style/AppSearchView"
+        app:queryHint="Procurando algum filme?"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

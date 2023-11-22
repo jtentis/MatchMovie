@@ -34,7 +34,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:padding="10dp"
-            android:text="TextView"
+            android:text="Titulo"
             android:layout_gravity="start"
             android:textColor="@color/white"
             android:textSize="36sp" />
@@ -57,7 +57,7 @@
             android:fontFamily="sans-serif-light"
             android:textColor="@color/white"
             android:layout_gravity="start"
-            android:text="TextView" />
+            android:text="Detalhes" />
         />
 
     </LinearLayout>

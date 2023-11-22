@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MovieDetails">
+
+    <ImageView
+        android:id="@+id/imageView_details"
+        android:layout_width="489dp"
+        android:layout_height="772dp"
+        android:src="@drawable/oppenheimer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layout_transparent"
+        android:layout_width="411dp"
+        android:layout_height="241dp"
+        android:background="@color/black"
+        android:alpha="0.7"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="489dp">
+
+        <TextView
+            android:id="@+id/textView_title_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:padding="10dp"
+            android:text="TextView"
+            android:layout_gravity="start"
+            android:textColor="@color/white"
+            android:textSize="36sp" />
+
+        <RatingBar
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:id="@+id/ratingBar_details"
+            android:progressTint="@color/secondary"
+            android:scaleX=".8"
+            android:scaleY=".8"
+            android:max="5"/>
+
+        <TextView
+            android:id="@+id/textView_desc_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/white"
+            android:layout_gravity="start"
+            android:text="TextView" />
+        />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

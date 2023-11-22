@@ -1,5 +1,6 @@
 package com.example.matchmovie.adapters;
 
+import android.graphics.Movie;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,5 +54,15 @@ public class MovieRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void setmMovies(List<MovieModel> mMovies) {
         this.mMovies = mMovies;
         notifyDataSetChanged();
+    }
+
+    //pegando id do filme
+    public MovieModel getSelectedMovie(int position){
+        if(mMovies != null){
+            if(mMovies.size()>0){
+                return mMovies.get(position);
+            }
+        }
+        return null;
     }
 }

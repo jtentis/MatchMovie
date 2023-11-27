@@ -23,8 +23,11 @@ import retrofit2.Response;
 public class MovieApiClient {
     private MutableLiveData<List<MovieModel>> mMovies;
     private static MovieApiClient instance;
-
     private RetrieveMoviesRunnable retrieveMoviesRunnable;
+
+    // para filmes populares
+    private MutableLiveData<List<MovieModel>> mMoviesPop;
+    private RetrieveMoviesRunnablePop retrieveMoviesRunnablePop;
     public static MovieApiClient getInstance(){
         if(instance == null){
             instance = new MovieApiClient();
@@ -33,9 +36,14 @@ public class MovieApiClient {
     }
     private MovieApiClient(){
         mMovies = new MutableLiveData<>();
+        mMoviesPop = new MutableLiveData<>();
     }
     public LiveData<List<MovieModel>> getMovies(){
         return mMovies;
+    }
+
+    public LiveData<List<MovieModel>> getMoviesPop(){
+        return mMoviesPop;
     }
 
     //1- usaremos esse método para chamar entre as classes
@@ -56,6 +64,25 @@ public class MovieApiClient {
             }
         }, 3000, TimeUnit.MILLISECONDS);
     }
+
+    public void searchMoviesApiPop(int pageNumber){
+        if(retrieveMoviesRunnablePop != null){
+            retrieveMoviesRunnablePop = null;
+        }
+
+        retrieveMoviesRunnablePop = new RetrieveMoviesRunnablePop(pageNumber);
+
+        final Future myHandler2 = AppExecutors.getInstance().networkIO().submit(retrieveMoviesRunnablePop);
+
+        AppExecutors.getInstance().networkIO().schedule(new Runnable() {
+            @Override
+            public void run() {
+                //Cancelando a chamada do retrofit
+                myHandler2.cancel(true);
+            }
+        }, 1000, TimeUnit.MILLISECONDS);
+    }
+
     //temos 2 tipos de busca por query: por ID e por nome
     private class RetrieveMoviesRunnable implements Runnable{
 
@@ -107,6 +134,57 @@ public class MovieApiClient {
             }
         private void cancelRequest(){
             Log.v("tag", "Cancelado request!");
+            cancelRequest=true;
+        }
+    }
+
+    private class RetrieveMoviesRunnablePop implements Runnable{
+
+        private int pageNumber;
+        boolean cancelRequest;
+
+        public RetrieveMoviesRunnablePop(int pageNumber) {
+            this.pageNumber = pageNumber;
+            cancelRequest=false;
+        }
+
+        @Override
+        public void run() {
+            try{
+                Response response2 = getPop(pageNumber).execute();
+                if (cancelRequest) {
+                    return;
+                }
+                if(response2.code()==200){
+                    List<MovieModel> list = new ArrayList<>(((MovieSearchResponse)response2.body()).getMovies());
+                    if(pageNumber == 1){
+                        //mandando dados para o live data
+                        mMoviesPop.postValue(list);
+                    }else{
+                        List<MovieModel> currentMovies = mMoviesPop.getValue();
+                        currentMovies.addAll(list);
+                        mMoviesPop.postValue(currentMovies);
+                    }
+                }else{
+                    String error = response2.errorBody().string();
+                    Log.v("tag", "Erro!"+error);
+                    mMoviesPop.postValue(null);
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                mMoviesPop.postValue(null);
+            }
+        }
+        private Call<MovieSearchResponse> getPop(int pageNumber){
+            return Servicey.getMovieApi().getPopular(
+                    Credentials.API_KEY,
+                    pageNumber
+            );
+        }
+        private void cancelRequest(){
+            Log.v("tag", "Request cancelada!");
             cancelRequest=true;
         }
     }

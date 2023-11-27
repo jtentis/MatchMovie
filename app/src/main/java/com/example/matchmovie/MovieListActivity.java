@@ -52,6 +52,8 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
     //ViewModel
     private MovieListViewModel movieListViewModel;
+
+    boolean isPopular = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +66,26 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
         ConfigureRecyclerView();
         ObserveAnyChange();
+        ObservePopularMovies();
 
+        // pegando dados e executando para filmes populares
+        movieListViewModel.searchMoviePop(1);
+
+    }
+
+    private void ObservePopularMovies() {
+        movieListViewModel.getPop().observe(this, new Observer<List<MovieModel>>() {
+            @Override
+            public void onChanged(List<MovieModel> movieModels) {
+                //Observando mudanças de dados
+                if(movieModels != null){
+                    for(MovieModel movieModel: movieModels){
+                        Log.v("tag", "Título: "+movieModel.getTitle());
+                        movieRecyclerAdapter.setmMovies(movieModels);
+                    }
+                }
+            }
+        });
     }
 
     //Observer
@@ -130,6 +151,13 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
+            }
+        });
+
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isPopular = false;
             }
         });
     };

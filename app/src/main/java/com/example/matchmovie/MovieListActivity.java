@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.matchmovie.adapters.MovieRecyclerView;
@@ -63,6 +64,16 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         SetupSearchView();
 
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
+
+        /* BOTAO PARA MUDAR O FILTRO
+        ImageView btnSearch= (ImageView) findViewById(R.id.btn_search);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                movieListViewModel.searchMoviePop(1);
+            }
+        });
+         */
 
         ConfigureRecyclerView();
         ObserveAnyChange();

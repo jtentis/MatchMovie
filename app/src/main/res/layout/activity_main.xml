@@ -8,17 +8,17 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintHorizontal_weight="50"
         android:layout_marginEnd="1dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="2" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
@@ -34,6 +34,21 @@
         android:background="@drawable/bg_white_rounded"
         android:theme="@style/AppSearchView"
         app:queryHint="Procurando algum filme?"
+        />
+
+    <ImageView
+        android:id="@+id/btn_search"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:gravity="center"
+        android:padding="15dp"
+        tools:layout_editor_absoluteX="343dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_white_rounded"
+        android:src="@drawable/filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView"
         />
 
 

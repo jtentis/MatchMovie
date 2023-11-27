@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.matchmovie.models.MovieModel;
 
 public class MovieDetails extends AppCompatActivity {
@@ -33,7 +34,15 @@ public class MovieDetails extends AppCompatActivity {
     private void GetDataFromIntent() {
         if(getIntent().hasExtra("movie")){
             MovieModel movieModel = getIntent().getParcelableExtra("movie");
-            Log.v("tag", "incoming intent"+movieModel.getTitle());
+
+            titleDetails.setText(movieModel.getTitle());
+            descDetails.setText(movieModel.getMovie_overview());
+            ratingBarDetails.setRating(movieModel.getVote_average()/2);
+
+            Log.v("arroz", "x"+movieModel.getMovie_overview());
+
+            Glide.with(this)
+                    .load("https://image.tmdb.org/t/p/w500/"+ movieModel.getPoster_path()).into(imageViewDetails);
         }
     }
 }

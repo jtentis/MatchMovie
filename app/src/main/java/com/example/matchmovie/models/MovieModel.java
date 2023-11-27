@@ -5,6 +5,8 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.annotations.SerializedName;
+
 public class MovieModel implements Parcelable {
     //Model class para os filmes
     private String title;
@@ -12,6 +14,7 @@ public class MovieModel implements Parcelable {
     private String release_date;
     private int movie_id;
     private float vote_average;
+    @SerializedName("overview")
     private String movie_overview;
     private int runtime;
 

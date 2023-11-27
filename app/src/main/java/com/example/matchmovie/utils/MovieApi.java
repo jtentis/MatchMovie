@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface MovieApi {
     //procurando filme pelo nome
-    @GET("/3/search/movie")
+    @GET("/3/search/movie?&language=pt-BR")
     Call<MovieSearchResponse> searchMovie(
             @Query("api_key") String key,
             @Query("query") String query,
@@ -18,7 +18,7 @@ public interface MovieApi {
     );
 
     //mostrando filmes populares
-    @GET("/3/movie/popular")
+    @GET("/3/movie/popular?language=pt-BR")
     Call<MovieSearchResponse> getPopular (
             @Query("api_key") String key,
             @Query("page") int page

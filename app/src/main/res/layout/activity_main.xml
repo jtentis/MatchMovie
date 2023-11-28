@@ -31,77 +31,69 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/bg_blackshadow_rounded"
+        android:background="@drawable/bg_black_rounded"
         android:theme="@style/AppSearchView"
         app:queryHint="Procurando algum filme?"
         app:iconifiedByDefault="false"
         app:queryBackground="@android:color/transparent"
-        android:alpha="0.8"
+        android:alpha="0.9"
         />
 
     <ImageView
         android:id="@+id/btn_pop"
         android:layout_width="52dp"
         android:layout_height="52dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="50dp"
+        android:alpha="0.9"
+        android:background="@drawable/bg_black_rounded"
         android:gravity="center"
         android:padding="15dp"
-        tools:layout_editor_absoluteX="343dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/bg_blackshadow_rounded"
         android:src="@drawable/popular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView"
-        android:alpha="0.8"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/btn_now_playing"
         android:layout_width="52dp"
         android:layout_height="52dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="112dp"
+        android:alpha="0.9"
+        android:background="@drawable/bg_black_rounded"
         android:gravity="center"
         android:padding="15dp"
-        tools:layout_editor_absoluteX="343dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="80dp"
-        android:background="@drawable/bg_blackshadow_rounded"
         android:src="@drawable/now_playing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView"
-        android:alpha="0.8"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/btn_top_rated"
         android:layout_width="52dp"
         android:layout_height="52dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="172dp"
+        android:alpha="0.9"
+        android:background="@drawable/bg_black_rounded"
         android:gravity="center"
         android:padding="15dp"
-        tools:layout_editor_absoluteX="343dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="140dp"
-        android:background="@drawable/bg_blackshadow_rounded"
         android:src="@drawable/toprated"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView"
-        android:alpha="0.8"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/btn_upcoming"
         android:layout_width="52dp"
         android:layout_height="52dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="232dp"
+        android:alpha=".9"
+        android:background="@drawable/bg_black_rounded"
         android:gravity="center"
         android:padding="15dp"
-        tools:layout_editor_absoluteX="343dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="200dp"
-        android:background="@drawable/bg_blackshadow_rounded"
         android:src="@drawable/upcoming"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView"
-        android:alpha="0.8"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

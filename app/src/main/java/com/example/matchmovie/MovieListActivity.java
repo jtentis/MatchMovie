@@ -73,18 +73,87 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
             }
         });
 
+        ImageView btn_now_playing= (ImageView) findViewById(R.id.btn_now_playing);
+        btn_now_playing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                movieListViewModel.searchMovieNowPlaying(1);
+            }
+        });
+
+        ImageView btn_top_rated= (ImageView) findViewById(R.id.btn_top_rated);
+        btn_top_rated.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                movieListViewModel.searchMovieTopRated(1);
+            }
+        });
+
+        ImageView btn_upcoming= (ImageView) findViewById(R.id.btn_upcoming);
+        btn_upcoming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                movieListViewModel.searchMovieUpcoming(1);
+            }
+        });
+
 
         ConfigureRecyclerView();
         ObserveAnyChange();
         ObservePopularMovies();
+        ObserveNowPlaying();
+        ObserveTopRated();
+        ObserveUpcoming();
 
-        // pegando dados e executando para filmes populares
+        // pegando dados e executando para filmes populares como pagina incial
         movieListViewModel.searchMoviePop(1);
 
     }
 
     private void ObservePopularMovies() {
         movieListViewModel.getPop().observe(this, new Observer<List<MovieModel>>() {
+            @Override
+            public void onChanged(List<MovieModel> movieModels) {
+                //Observando mudanças de dados
+                if(movieModels != null){
+                    for(MovieModel movieModel: movieModels){
+                        Log.v("tag", "Título: "+movieModel.getTitle());
+                        movieRecyclerAdapter.setmMovies(movieModels);
+                    }
+                }
+            }
+        });
+    }
+    private void ObserveNowPlaying() {
+        movieListViewModel.getNowPlaying().observe(this, new Observer<List<MovieModel>>() {
+            @Override
+            public void onChanged(List<MovieModel> movieModels) {
+                //Observando mudanças de dados
+                if(movieModels != null){
+                    for(MovieModel movieModel: movieModels){
+                        Log.v("tag", "Título: "+movieModel.getTitle());
+                        movieRecyclerAdapter.setmMovies(movieModels);
+                    }
+                }
+            }
+        });
+    }
+    private void ObserveTopRated() {
+        movieListViewModel.getTopRated().observe(this, new Observer<List<MovieModel>>() {
+            @Override
+            public void onChanged(List<MovieModel> movieModels) {
+                //Observando mudanças de dados
+                if(movieModels != null){
+                    for(MovieModel movieModel: movieModels){
+                        Log.v("tag", "Título: "+movieModel.getTitle());
+                        movieRecyclerAdapter.setmMovies(movieModels);
+                    }
+                }
+            }
+        });
+    }
+    private void ObserveUpcoming() {
+        movieListViewModel.getUpcoming().observe(this, new Observer<List<MovieModel>>() {
             @Override
             public void onChanged(List<MovieModel> movieModels) {
                 //Observando mudanças de dados
@@ -171,66 +240,4 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         });
     };
 
-//    private void GetRetrofitResponse() {
-//        MovieApi movieApi = Servicey.getMovieApi();
-//        Call<MovieSearchResponse> responseCall = movieApi
-//                .searchMovie(
-//                        Credentials.API_KEY,
-//                        "As Vantagens",
-//                        1
-//                );
-//        responseCall.enqueue(new Callback<MovieSearchResponse>() {
-//            @Override
-//            public void onResponse(Call<MovieSearchResponse> call, Response<MovieSearchResponse> response) {
-//                if(response.code()==200){
-//                    Log.v("tag", "the response" + response.body().toString());
-//                    List<MovieModel> movies = new ArrayList<>(response.body().getMovies());
-//                    for (MovieModel movie: movies){
-//                        Log.v("tag", "A data de lançamento foi " + movie.getRelease_date());
-////                        Log.v("tag", "A data de lançamento foi " + movie.getTitle());
-//                    }
-//                }
-//                else{
-//                    try{
-//                        Log.v("tag", "Erro!" + response.errorBody().string());
-//                    } catch (IOException e){
-//                            e.printStackTrace();
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<MovieSearchResponse> call, Throwable t) {
-//
-//            }
-//        });
-//    }
-//    private void GetRetrofitResponseAccordingToId(){
-//        MovieApi movieApi = Servicey.getMovieApi();
-//        Call<MovieModel> responseCall = movieApi
-//                .getMovie(
-//                        550,
-//                        Credentials.API_KEY);
-//        responseCall.enqueue(new Callback<MovieModel>() {
-//            @Override
-//            public void onResponse(Call<MovieModel> call, Response<MovieModel> response) {
-//                if(response.code()==200){
-//                    MovieModel movie = response.body();
-//                    Log.v("tag", "O titulo do filme é: "+movie.getTitle());
-//                }
-//                else{
-//                    try {
-//                        Log.v("tag", "Erro!" +response.errorBody().string());
-//                    } catch (IOException e) {
-//                        throw new RuntimeException(e);
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<MovieModel> call, Throwable t) {
-//
-//            }
-//        });
-//    }
 }

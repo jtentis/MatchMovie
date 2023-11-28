@@ -24,6 +24,26 @@ public interface MovieApi {
             @Query("page") int page
     );
 
+    //mostrando filmes que estão passando no cinema agora
+    @GET("/3/movie/now_playing?language=pt-BR")
+    Call<MovieSearchResponse> getNowPlaying (
+            @Query("api_key") String key,
+            @Query("page") int page
+    );
+
+    //filmes mais bem avaliados
+    @GET("/3/movie/top_rated?language=pt-BR")
+    Call<MovieSearchResponse> getTopRated (
+            @Query("api_key") String key,
+            @Query("page") int page
+    );
+
+    //filmes que ainda vão lançar
+    @GET("/3/movie/upcoming?language=pt-BR")
+    Call<MovieSearchResponse> getUpcoming (
+            @Query("api_key") String key,
+            @Query("page") int page
+    );
 
     //procurando filme pelo id
     //https://api.themoviedb.org/3/movie/550?api_key=2017240ed8d4e61fbe9ed801fe5da25a

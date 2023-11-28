@@ -31,9 +31,17 @@ public class MovieRepository {
 
     public LiveData<List<MovieModel>> getMovies(){
         return movieApiClient.getMovies();}
-
     public LiveData<List<MovieModel>> getPop(){
         return movieApiClient.getMoviesPop();
+    }
+    public LiveData<List<MovieModel>> getNowPlaying(){
+        return movieApiClient.getMoviesNowPlaying();
+    }
+    public LiveData<List<MovieModel>> getTopRated(){
+        return movieApiClient.getMoviesTopRated();
+    }
+    public LiveData<List<MovieModel>> getUpcoming(){
+        return movieApiClient.getMoviesUpcoming();
     }
 
     //2- chamando o método do repositório
@@ -42,13 +50,32 @@ public class MovieRepository {
         mPageNumber = pageNumber;
         movieApiClient.searchMoviesApi(query, pageNumber);
     }
-
     public void searchMoviePop(int pageNumber){
         mPageNumber = pageNumber;
         movieApiClient.searchMoviesApiPop(pageNumber);
     }
+    public void searchMovieNowPlaying(int pageNumber){
+        mPageNumber = pageNumber;
+        movieApiClient.searchMoviesApiNowPlaying(pageNumber);
+    }
+    public void searchMovieTopRated(int pageNumber){
+        mPageNumber = pageNumber;
+        movieApiClient.searchMoviesApiTopRated(pageNumber);
+    }
+    public void searchMovieUpcoming(int pageNumber){
+        mPageNumber = pageNumber;
+        movieApiClient.searchMoviesApiUpcoming(pageNumber);
+    }
+
+    // scroll infinito
     public void searchNextPage(){
         searchMovieApi(mQuery, mPageNumber+1);
+        /*
+        searchMoviePop(mPageNumber+1);
+        searchMovieTopRated(mPageNumber+1);
+        searchMovieNowPlaying(mPageNumber+1);
+        searchMovieUpcoming(mPageNumber+1);
+         */
     }
 }
 

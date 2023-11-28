@@ -35,10 +35,10 @@
             android:id="@+id/textView_title_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="14dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="12dp"
-            android:fontFamily="Coiny"
+            android:fontFamily="@font/latoblack"
             android:textColor="@color/white"
             android:text="TextView"
             android:textSize="30dp" />
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:isIndicator="true"
             />
 
@@ -56,12 +56,13 @@
             android:id="@+id/textView_desc_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="14dp"
             android:layout_marginBottom="20dp"
             android:justificationMode="inter_word"
             android:textColor="@color/white"
+            android:fontFamily="@font/latoregular"
             android:textSize="20dp"
             android:text="TextView" />
 

@@ -34,6 +34,8 @@
         android:background="@drawable/bg_blackshadow_rounded"
         android:theme="@style/AppSearchView"
         app:queryHint="Procurando algum filme?"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@android:color/transparent"
         android:alpha="0.8"
         />
 

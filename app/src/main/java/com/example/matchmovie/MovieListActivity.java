@@ -65,15 +65,14 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
 
-        /* BOTAO PARA MUDAR O FILTRO
-        ImageView btnSearch= (ImageView) findViewById(R.id.btn_search);
-        btnSearch.setOnClickListener(new View.OnClickListener() {
+        ImageView btn_pop= (ImageView) findViewById(R.id.btn_pop);
+        btn_pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 movieListViewModel.searchMoviePop(1);
             }
         });
-         */
+
 
         ConfigureRecyclerView();
         ObserveAnyChange();

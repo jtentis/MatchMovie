@@ -41,7 +41,7 @@
             android:fontFamily="@font/latoblack"
             android:textColor="@color/white"
             android:text="TextView"
-            android:textSize="30dp" />
+            android:textSize="26dp" />
 
         <RatingBar
             android:id="@+id/ratingBar_details"
@@ -63,7 +63,7 @@
             android:justificationMode="inter_word"
             android:textColor="@color/white"
             android:fontFamily="@font/latoregular"
-            android:textSize="20dp"
+            android:textSize="14dp"
             android:text="TextView" />
 
 

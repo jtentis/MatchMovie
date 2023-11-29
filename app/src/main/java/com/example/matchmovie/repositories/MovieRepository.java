@@ -68,16 +68,17 @@ public class MovieRepository {
     }
 
     // scroll infinito
+    // TODO: resolver bug do scroll infinito
     public void searchNextPage(){
         searchMovieApi(mQuery, mPageNumber+1);
-        /*
-        searchMoviePop(mPageNumber+1);
+//        searchMoviePop(mPageNumber+1);
         searchMovieTopRated(mPageNumber+1);
-        searchMovieNowPlaying(mPageNumber+1);
-        searchMovieUpcoming(mPageNumber+1);
-         */
+//        searchMovieNowPlaying(mPageNumber+1);
+//        searchMovieUpcoming(mPageNumber+1);
+
     }
 }
+
 
 
 

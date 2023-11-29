@@ -1,9 +1,11 @@
 package com.example.matchmovie;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -66,30 +68,31 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
 
         ImageView btn_pop= (ImageView) findViewById(R.id.btn_pop);
+        ImageView btn_now_playing= (ImageView) findViewById(R.id.btn_now_playing);
+        ImageView btn_top_rated= (ImageView) findViewById(R.id.btn_top_rated);
+        ImageView btn_upcoming= (ImageView) findViewById(R.id.btn_upcoming);
+
         btn_pop.setOnClickListener(new View.OnClickListener() {
+            private Context context;
+
             @Override
             public void onClick(View v) {
+//                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_click));
                 movieListViewModel.searchMoviePop(1);
             }
         });
-
-        ImageView btn_now_playing= (ImageView) findViewById(R.id.btn_now_playing);
         btn_now_playing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 movieListViewModel.searchMovieNowPlaying(1);
             }
         });
-
-        ImageView btn_top_rated= (ImageView) findViewById(R.id.btn_top_rated);
         btn_top_rated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 movieListViewModel.searchMovieTopRated(1);
             }
         });
-
-        ImageView btn_upcoming= (ImageView) findViewById(R.id.btn_upcoming);
         btn_upcoming.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

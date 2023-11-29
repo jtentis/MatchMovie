@@ -121,7 +121,7 @@ public class MovieApiClient {
                 //Cancelando a chamada do retrofit
                 myHandler3.cancel(true);
             }
-        }, 1000, TimeUnit.MILLISECONDS);
+        }, 5000, TimeUnit.MILLISECONDS);
     }
     public void searchMoviesApiTopRated(int pageNumber){
         if(retrieveMoviesRunnableTopRated != null){
@@ -138,7 +138,7 @@ public class MovieApiClient {
                 //Cancelando a chamada do retrofit
                 myHandler4.cancel(true);
             }
-        }, 1000, TimeUnit.MILLISECONDS);
+        }, 5000, TimeUnit.MILLISECONDS);
     }
     public void searchMoviesApiUpcoming(int pageNumber){
         if(retrieveMoviesRunnableUpcoming != null){
@@ -155,7 +155,7 @@ public class MovieApiClient {
                 //Cancelando a chamada do retrofit
                 myHandler5.cancel(true);
             }
-        }, 1000, TimeUnit.MILLISECONDS);
+        }, 5000, TimeUnit.MILLISECONDS);
     }
 
     //temos 2 tipos de busca por query: por ID e por nome

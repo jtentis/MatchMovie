@@ -67,6 +67,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
 
+//        View btn_visitante = findViewById(R.id.btn_visitante);
         ImageView btn_pop= (ImageView) findViewById(R.id.btn_pop);
         ImageView btn_now_playing= (ImageView) findViewById(R.id.btn_now_playing);
         ImageView btn_top_rated= (ImageView) findViewById(R.id.btn_top_rated);

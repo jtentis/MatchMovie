@@ -67,19 +67,16 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
 
-//        View btn_visitante = findViewById(R.id.btn_visitante);
         ImageView btn_pop= (ImageView) findViewById(R.id.btn_pop);
         ImageView btn_now_playing= (ImageView) findViewById(R.id.btn_now_playing);
         ImageView btn_top_rated= (ImageView) findViewById(R.id.btn_top_rated);
         ImageView btn_upcoming= (ImageView) findViewById(R.id.btn_upcoming);
 
         btn_pop.setOnClickListener(new View.OnClickListener() {
-            private Context context;
-
             @Override
             public void onClick(View v) {
-//                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_click));
-                movieListViewModel.searchMoviePop(1);
+                setContentView(R.layout.activity_login);
+//                movieListViewModel.searchMoviePop(1);
             }
         });
         btn_now_playing.setOnClickListener(new View.OnClickListener() {

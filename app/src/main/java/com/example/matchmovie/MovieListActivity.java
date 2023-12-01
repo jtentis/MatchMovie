@@ -64,7 +64,6 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
 
-
         SetupSearchView();
 
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
@@ -117,7 +116,6 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         ObserveUpcoming();
 
     }
-
     private void ObservePopularMovies() {
         movieListViewModel.getPop().observe(this, new Observer<List<MovieModel>>() {
             @Override

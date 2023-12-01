@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_blackshadow_rounded"
     tools:context=".MovieDetails">
 
     <ImageView
@@ -39,25 +40,25 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/latoblack"
-            android:textColor="@color/white"
+            android:textAlignment="center"
             android:text="TextView"
+            android:textColor="@color/white"
             android:textSize="26dp" />
 
         <RatingBar
             android:id="@+id/ratingBar_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="53dp"
             android:layout_marginTop="5dp"
-            android:isIndicator="true"
-            />
+            android:isIndicator="true" />
 
         <TextView
             android:id="@+id/textView_desc_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="14dp"
             android:layout_marginBottom="20dp"
             android:justificationMode="inter_word"

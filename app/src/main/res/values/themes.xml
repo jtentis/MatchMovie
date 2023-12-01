@@ -18,5 +18,7 @@
         <item name="android:editTextColor">@color/white</item>
         <item name="android:textColorHint">@color/white</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 </resources>

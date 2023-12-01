@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.matchmovie.adapters.MovieRecyclerView;
@@ -63,41 +64,47 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
 
+
         SetupSearchView();
 
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
+
+        // pegando dados e executando para filmes populares como pagina incial
+        movieListViewModel.searchMoviePop(1);
 
 //        View btn_visitante = findViewById(R.id.btn_visitante);
         ImageView btn_pop= (ImageView) findViewById(R.id.btn_pop);
         ImageView btn_now_playing= (ImageView) findViewById(R.id.btn_now_playing);
         ImageView btn_top_rated= (ImageView) findViewById(R.id.btn_top_rated);
         ImageView btn_upcoming= (ImageView) findViewById(R.id.btn_upcoming);
+        TextView popular=(TextView)findViewById(R.id.txt_popular);
 
         btn_pop.setOnClickListener(new View.OnClickListener() {
-            private Context context;
-
             @Override
             public void onClick(View v) {
-//                v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_click));
                 movieListViewModel.searchMoviePop(1);
+                popular.setText("Populares");
             }
         });
         btn_now_playing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 movieListViewModel.searchMovieNowPlaying(1);
+                popular.setText("Nos Cinemas");
             }
         });
         btn_top_rated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 movieListViewModel.searchMovieTopRated(1);
+                popular.setText("Melhor Avaliados");
             }
         });
         btn_upcoming.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 movieListViewModel.searchMovieUpcoming(1);
+                popular.setText("Em breve");
             }
         });
 
@@ -108,9 +115,6 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         ObserveNowPlaying();
         ObserveTopRated();
         ObserveUpcoming();
-
-        // pegando dados e executando para filmes populares como pagina incial
-        movieListViewModel.searchMoviePop(1);
 
     }
 

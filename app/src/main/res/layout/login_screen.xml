@@ -92,8 +92,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/register"
+    <TextView
+        android:id="@+id/register_text"
         android:layout_width="212dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
@@ -101,6 +101,7 @@
         android:ems="10"
         android:inputType="text"
         android:text="Ainda não possui conta? Registre-se."
+        android:textColor="@color/white"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

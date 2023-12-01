@@ -41,10 +41,10 @@
 
     <ImageView
         android:id="@+id/btn_pop"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="52dp"
         android:alpha="0.9"
         android:background="@drawable/bg_black_rounded"
         android:gravity="center"
@@ -55,10 +55,10 @@
 
     <ImageView
         android:id="@+id/btn_now_playing"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="117dp"
         android:alpha="0.9"
         android:background="@drawable/bg_black_rounded"
         android:gravity="center"
@@ -69,10 +69,10 @@
 
     <ImageView
         android:id="@+id/btn_top_rated"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginBottom="181dp"
         android:alpha="0.9"
         android:background="@drawable/bg_black_rounded"
         android:gravity="center"
@@ -83,10 +83,10 @@
 
     <ImageView
         android:id="@+id/btn_upcoming"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="232dp"
+        android:layout_marginBottom="245dp"
         android:alpha=".9"
         android:background="@drawable/bg_black_rounded"
         android:gravity="center"

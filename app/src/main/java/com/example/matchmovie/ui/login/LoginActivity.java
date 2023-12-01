@@ -1,9 +1,47 @@
+//package com.example.matchmovie.ui.login;
+//
+//import androidx.appcompat.app.AppCompatActivity;
+//
+//import android.content.Intent;
+//import android.os.Bundle;
+//import android.os.Handler;
+//import com.example.matchmovie.MovieListActivity;
+//import com.example.matchmovie.R;
+//
+//
+//public class LoginActivity extends AppCompatActivity {
+//
+//    Handler handler = new Handler();
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_login);
+//
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Intent intent = new Intent(LoginActivity.this, MovieListActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        },3000);
+//    }
+//}
+
 package com.example.matchmovie.ui.login;
 
 import android.app.Activity;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import com.example.matchmovie.MovieListActivity;
+import com.example.matchmovie.R;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +50,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -36,24 +75,23 @@ public class LoginActivity extends AppCompatActivity {
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
 //    private MovieListViewModel movieListViewModel;
-
+    Handler handler = new Handler();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_login);
-
+        setContentView(R.layout.activity_login);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
-        Button visitanteButton = (Button) findViewById(R.id.visitanteButton);
-        visitanteButton.setOnClickListener(new View.OnClickListener() {
+        // ALGUMA COISA NESTE CODIGO NAO FUNCIONA
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-//                setContentView(R.layout.activity_main);
-                Log.v("arroz", "User tapped the Supabutton");
+            public void run() {
+                Intent intent = new Intent(LoginActivity.this, MovieListActivity.class);
+                startActivity(intent);
+                finish();
             }
-        });
+        },3000);
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);

@@ -2,6 +2,7 @@ package com.example.matchmovie;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,17 +67,20 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
         SetupSearchView();
 
+        TextView popular=(TextView)findViewById(R.id.txt_popular);
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
 
         // pegando dados e executando para filmes populares como pagina incial
         movieListViewModel.searchMoviePop(1);
+        popular.setText("Populares");
 
 //        View btn_visitante = findViewById(R.id.btn_visitante);
         ImageView btn_pop= (ImageView) findViewById(R.id.btn_pop);
         ImageView btn_now_playing= (ImageView) findViewById(R.id.btn_now_playing);
         ImageView btn_top_rated= (ImageView) findViewById(R.id.btn_top_rated);
         ImageView btn_upcoming= (ImageView) findViewById(R.id.btn_upcoming);
-        TextView popular=(TextView)findViewById(R.id.txt_popular);
+
+        BottomNavigationView navbar = findViewById(R.id.navigationView);
 
         btn_pop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,14 +100,14 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
             @Override
             public void onClick(View v) {
                 movieListViewModel.searchMovieTopRated(1);
-                popular.setText("Melhor Avaliados");
+                popular.setText("Mais Votados");
             }
         });
         btn_upcoming.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 movieListViewModel.searchMovieUpcoming(1);
-                popular.setText("Em breve");
+                popular.setText("Em Breve");
             }
         });
 

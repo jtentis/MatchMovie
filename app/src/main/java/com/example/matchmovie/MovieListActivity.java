@@ -39,6 +39,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,13 +56,11 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     private RecyclerView recyclerView;
     private MovieRecyclerView movieRecyclerAdapter;
     GridLayoutManager gridLayoutManager;
-
-//    private ActivityMainBinding binding;
-
     //ViewModel
     private MovieListViewModel movieListViewModel;
     boolean isPopular = true;
     private ActionBar toolbar;
+    FirebaseUser usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +68,12 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         recyclerView = findViewById(R.id.recyclerView);
 
         SetupSearchView();
+
+//        if(usuario == null){
+//            Intent intent = new Intent(MovieListActivity.this, LoginScreen.class);
+//            startActivity(intent);
+//            finish();
+//        }
 
         TextView popular=(TextView)findViewById(R.id.txt_popular);
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);

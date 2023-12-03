@@ -7,6 +7,17 @@
     tools:context=".LoginScreen"
     android:layout_height="match_parent">
 
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="230dp"
@@ -20,7 +31,7 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/email"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="37dp"
@@ -39,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/password"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="37dp"
@@ -55,7 +66,7 @@
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login"
@@ -71,7 +82,7 @@
         android:textSize="16dp"
         app:layout_constraintEnd_toStartOf="@+id/btn_visitante"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_visitante"
@@ -88,7 +99,7 @@
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_login"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <View
         android:id="@+id/circle"
@@ -121,7 +132,7 @@
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/register_text"
@@ -138,6 +149,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.584"
         app:layout_constraintStart_toEndOf="@+id/register"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

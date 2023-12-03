@@ -94,6 +94,8 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
                     startActivity(intent);
                     return true;
                 } else if (itemId == R.id.match) {
+                    Intent intent = new Intent(MovieListActivity.this, MatchScreen.class);
+                    startActivity(intent);
                     return true;
                 }
                 return false;

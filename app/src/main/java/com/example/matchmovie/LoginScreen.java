@@ -26,7 +26,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnTouchListen
         btn_visitante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.v("arroz", "clicou né");
+//                Log.v("arroz", "clicou né");
                 Intent intent = new Intent(LoginScreen.this, MovieListActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

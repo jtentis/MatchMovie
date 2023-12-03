@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -23,8 +24,10 @@ import com.example.matchmovie.viewmodels.MovieListViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -36,6 +39,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.matchmovie.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,8 +61,8 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 
     //ViewModel
     private MovieListViewModel movieListViewModel;
-
     boolean isPopular = true;
+    private ActionBar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,13 +78,27 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         movieListViewModel.searchMoviePop(1);
         popular.setText("Populares");
 
-//        View btn_visitante = findViewById(R.id.btn_visitante);
         ImageView btn_pop= (ImageView) findViewById(R.id.btn_pop);
         ImageView btn_now_playing= (ImageView) findViewById(R.id.btn_now_playing);
         ImageView btn_top_rated= (ImageView) findViewById(R.id.btn_top_rated);
         ImageView btn_upcoming= (ImageView) findViewById(R.id.btn_upcoming);
 
         BottomNavigationView navbar = findViewById(R.id.navigationView);
+
+        navbar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.profile) {
+                    Intent intent = new Intent(MovieListActivity.this, ProfileScreen.class);
+                    startActivity(intent);
+                    return true;
+                } else if (itemId == R.id.match) {
+                    return true;
+                }
+                return false;
+            }
+        });
 
         btn_pop.setOnClickListener(new View.OnClickListener() {
             @Override

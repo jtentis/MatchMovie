@@ -15,9 +15,12 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.w3c.dom.Text;
 
+import java.util.Locale;
+
 public class ProfileScreen extends AppCompatActivity {
 
-    EditText emailUsuario;
+    EditText emailUsuario, userUsuario;
+    String usuarioNome;
     FirebaseAuth auth;
     Button logout;
     TextView displayNome;
@@ -27,18 +30,29 @@ public class ProfileScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_screen);
 
-        emailUsuario = findViewById(R.id.user);
+        emailUsuario = findViewById(R.id.email);
+        userUsuario = findViewById(R.id.user);
         auth = FirebaseAuth.getInstance();
         logout = findViewById(R.id.btn_logout);
         displayNome = findViewById(R.id.texto_pic);
         usuario = auth.getCurrentUser();
+        usuarioNome = String.valueOf(usuario.getEmail());
 
         if(usuario == null){
             Intent intent = new Intent(ProfileScreen.this, LoginScreen.class);
             startActivity(intent);
             finish();
         }else{
-            displayNome.setText(usuario.getEmail());
+            if (usuarioNome.endsWith("@gmail.com")) {
+                usuarioNome = usuarioNome.replace("@gmail.com", "");
+                usuarioNome=usuarioNome.toUpperCase(Locale. getDefault());
+            }
+            if (usuarioNome.endsWith("@hotmail.com")) {
+                usuarioNome = usuarioNome.replace("hotmail.com", "");
+            }
+            displayNome.setText(usuarioNome);
+            usuarioNome=usuarioNome.toLowerCase(Locale. getDefault());
+            userUsuario.setHint(usuarioNome);
             emailUsuario.setHint(usuario.getEmail());
         }
 

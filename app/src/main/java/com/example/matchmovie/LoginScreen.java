@@ -70,26 +70,27 @@ public class LoginScreen extends AppCompatActivity implements View.OnTouchListen
         btn_loginUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBarUsuario.setVisibility(View.VISIBLE);
                 String email, password;
                 email = String.valueOf(emailUsuario.getText());
                 password = String.valueOf(passwordUsuario.getText());
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(LoginScreen.this, "Digite o email.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginScreen.this, "Digite seu email!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(LoginScreen.this, "Digite a senha..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginScreen.this, "Digite sua senha!", Toast.LENGTH_SHORT).show();
                     return;
+                }else{
+                    progressBarUsuario.setVisibility(View.VISIBLE);
                 }
 
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBarUsuario.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+                                    progressBarUsuario.setVisibility(View.GONE);
                                     Toast.makeText(LoginScreen.this, "Usuário logado com sucesso!",Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginScreen.this, MovieListActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

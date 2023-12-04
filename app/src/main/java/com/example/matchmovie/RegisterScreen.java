@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterScreen extends AppCompatActivity {
 
-    EditText nomeUsuario, emailUsuario, passwordUsuario;
+    EditText nomeUsuario, emailUsuario, passwordUsuario, passConfUsuario;
     Button btn_registerUsuario;
     ProgressBar progressBarUsuario;
     FirebaseAuth mAuth;
@@ -49,22 +50,29 @@ public class RegisterScreen extends AppCompatActivity {
         passwordUsuario = findViewById(R.id.password);
         btn_registerUsuario = findViewById(R.id.btn_register);
         progressBarUsuario = findViewById(R.id.progressBar);
+        passConfUsuario = findViewById(R.id.password_confirm);
 
         btn_registerUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBarUsuario.setVisibility(View.VISIBLE);
-                String email, password;
+                String email, password, passwordConf;
                 email = String.valueOf(emailUsuario.getText());
                 password = String.valueOf(passwordUsuario.getText());
+                passwordConf = String.valueOf(passConfUsuario.getText());
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(RegisterScreen.this, "Digite o email.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterScreen.this, "Digite seu email!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(RegisterScreen.this, "Digite a senha..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterScreen.this, "Digite sua senha!", Toast.LENGTH_SHORT).show();
                     return;
+                }
+                if(TextUtils.isEmpty(passwordConf)) {
+                    Toast.makeText(RegisterScreen.this, "Confirme sua senha!", Toast.LENGTH_SHORT).show();
+                    return;
+                }else{
+                    progressBarUsuario.setVisibility(View.VISIBLE);
                 }
 
                 mAuth.createUserWithEmailAndPassword(email, password)
@@ -72,16 +80,20 @@ public class RegisterScreen extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBarUsuario.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(RegisterScreen.this, "Conta criada com sucesso!",
-                                            Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(RegisterScreen.this, LoginScreen.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                    startActivity(intent);
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(RegisterScreen.this, "Erro ao registrar, tente novamente!",
-                                            Toast.LENGTH_SHORT).show();
+                                if(TextUtils.equals(password,passwordConf)) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(RegisterScreen.this, "Conta criada com sucesso!",
+                                                Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(RegisterScreen.this, LoginScreen.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Toast.makeText(RegisterScreen.this, "Erro ao registrar, tente novamente!",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }else{
+                                    Toast.makeText(RegisterScreen.this, "Senhas não coincidem!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

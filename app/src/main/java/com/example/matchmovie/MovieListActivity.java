@@ -39,6 +39,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.io.IOException;
@@ -59,8 +60,8 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     //ViewModel
     private MovieListViewModel movieListViewModel;
     boolean isPopular = true;
-    private ActionBar toolbar;
-    FirebaseUser usuario;
+    FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,9 +95,9 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
             public boolean onNavigationItemSelected(MenuItem item) {
                 int itemId = item.getItemId();
                 if (itemId == R.id.profile) {
-                    Intent intent = new Intent(MovieListActivity.this, ProfileScreen.class);
-                    startActivity(intent);
-                    return true;
+                        Intent intent = new Intent(MovieListActivity.this, ProfileScreen.class);
+                        startActivity(intent);
+                        return true;
                 } else if (itemId == R.id.match) {
                     Intent intent = new Intent(MovieListActivity.this, MatchScreen.class);
                     startActivity(intent);

@@ -39,6 +39,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnTouchListen
             Intent intent = new Intent(LoginScreen.this, MovieListActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            Toast.makeText(LoginScreen.this, "Login automático feito com sucesso!", Toast.LENGTH_SHORT).show();
             finish();
         }
     }
@@ -97,6 +98,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnTouchListen
                                     startActivity(intent);
                                     finish();
                                 } else {
+                                    progressBarUsuario.setVisibility(View.GONE);
                                     Toast.makeText(LoginScreen.this, "Usuário ou senha incorretos!", Toast.LENGTH_SHORT).show();
                                 }
                             }

@@ -48,7 +48,7 @@ public class ProfileScreen extends AppCompatActivity {
                 usuarioNome=usuarioNome.toUpperCase(Locale. getDefault());
             }
             if (usuarioNome.endsWith("@hotmail.com")) {
-                usuarioNome = usuarioNome.replace("hotmail.com", "");
+                usuarioNome = usuarioNome.replace("@hotmail.com", "");
             }
             displayNome.setText(usuarioNome);
             usuarioNome=usuarioNome.toLowerCase(Locale. getDefault());

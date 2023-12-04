@@ -27,6 +27,7 @@
         android:background="@drawable/bg_inputs"
         android:elevation="4dp"
         android:ems="10"
+        android:textColorHint="@color/hint"
         android:fontFamily="@font/coinyregular"
         android:hint="Nome de usuário"
         android:inputType="text"
@@ -43,6 +44,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="41dp"
+        android:textColorHint="@color/hint"
         android:background="@drawable/bg_inputs"
         android:elevation="4dp"
         android:ems="10"
@@ -64,6 +66,7 @@
         android:background="@drawable/bg_inputs"
         android:elevation="4dp"
         android:ems="10"
+        android:textColorHint="@color/hint"
         android:fontFamily="@font/coinyregular"
         android:hint="Senha"
         android:inputType="textPassword"
@@ -83,7 +86,9 @@
         android:fontFamily="@font/coinyregular"
         android:hint="Confirmação de senha"
         android:textSize="12dp"
+        app:passwordToggleEnabled="true"
         android:inputType="textPassword"
+        android:textColorHint="@color/hint"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -125,5 +130,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_register"
         tools:layout_editor_absoluteX="182dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="12dp"
+        android:translationZ="90dp"
+        android:alpha=".9"
+        app:layout_constraintBottom_toBottomOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:srcCompat="@drawable/email_icon" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="12dp"
+        android:translationZ="90dp"
+        android:alpha=".9"
+        app:layout_constraintBottom_toBottomOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:srcCompat="@drawable/lock" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="12dp"
+        android:translationZ="90dp"
+        android:alpha=".9"
+        app:layout_constraintBottom_toBottomOf="@+id/password_confirm"
+        app:layout_constraintEnd_toEndOf="@+id/password_confirm"
+        app:srcCompat="@drawable/lock" />
+
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="9dp"
+        android:alpha=".9"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nome_usuario"
+        app:layout_constraintEnd_toEndOf="@+id/nome_usuario"
+        app:srcCompat="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/white"
+        android:text="Preencha suas informações para se registrar!"
+        app:layout_constraintBottom_toTopOf="@+id/nome_usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

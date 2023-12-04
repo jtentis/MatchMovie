@@ -43,6 +43,7 @@
         android:fontFamily="@font/coinyregular"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:textColorHint="@color/hint"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -63,6 +64,7 @@
         android:hint="Senha"
         android:inputType="textPassword"
         android:textAlignment="viewStart"
+        android:textColorHint="@color/hint"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,5 +152,41 @@
         app:layout_constraintHorizontal_bias="0.584"
         app:layout_constraintStart_toEndOf="@+id/register"
         app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <ImageView
+        android:id="@+id/email_icon"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="12dp"
+        android:translationZ="90dp"
+        android:alpha=".9"
+        app:layout_constraintBottom_toBottomOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:srcCompat="@drawable/email_icon" />
+
+    <ImageView
+        android:id="@+id/lock"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="12dp"
+        android:translationZ="90dp"
+        android:alpha=".9"
+        app:layout_constraintBottom_toBottomOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:srcCompat="@drawable/lock" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/white"
+        android:text="Insira seus dados abaixo para login!"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -67,6 +67,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="9dp"
+        android:alpha=".9"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nome"
+        app:layout_constraintEnd_toEndOf="@+id/nome"
+        app:srcCompat="@drawable/profile" />
+
     <TextView
         android:id="@+id/text_user"
         android:layout_width="wrap_content"
@@ -100,6 +111,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nome" />
 
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="9dp"
+        android:alpha=".9"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/user"
+        app:layout_constraintEnd_toEndOf="@+id/user"
+        app:srcCompat="@drawable/profile" />
+
     <TextView
         android:id="@+id/text_email"
         android:layout_width="wrap_content"
@@ -131,6 +153,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user" />
+
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="11dp"
+        android:alpha=".9"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:srcCompat="@drawable/email_icon" />
 
     <TextView
         android:id="@+id/text_number"
@@ -166,6 +199,7 @@
         android:layout_marginTop="70dp"
         android:background="@drawable/bg_inputs"
         android:elevation="4dp"
+        android:paddingEnd="12dp"
         android:ems="10"
         android:fontFamily="@font/coinyregular"
         android:hint="+55"
@@ -192,6 +226,17 @@
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="11dp"
+        android:alpha=".9"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/number"
+        app:layout_constraintEnd_toEndOf="@+id/number"
+        app:srcCompat="@drawable/phone" />
 
     <ImageView
         android:id="@+id/back_button"

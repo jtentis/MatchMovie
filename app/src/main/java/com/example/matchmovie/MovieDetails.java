@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.media.Rating;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -15,7 +16,7 @@ import com.example.matchmovie.models.MovieModel;
 public class MovieDetails extends AppCompatActivity {
 
     //widgets
-    private ImageView imageViewDetails;
+    private ImageView imageViewDetails, backButton;
     private TextView titleDetails, descDetails;
     private RatingBar ratingBarDetails;
     @Override
@@ -23,10 +24,18 @@ public class MovieDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
 
+        backButton=findViewById(R.id.back_button);
         imageViewDetails = findViewById(R.id.imageView_details);
         titleDetails= findViewById(R.id.textView_title_details);
         descDetails = findViewById(R.id.textView_desc_details);
         ratingBarDetails = findViewById(R.id.ratingBar_details);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        });
 
         GetDataFromIntent();
     }

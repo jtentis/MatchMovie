@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ public class ProfileScreen extends AppCompatActivity {
     Button logout;
     TextView displayNome;
     FirebaseUser usuario;
+
+    ImageView backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,7 @@ public class ProfileScreen extends AppCompatActivity {
         displayNome = findViewById(R.id.texto_pic);
         usuario = auth.getCurrentUser();
         usuarioNome = String.valueOf(usuario.getEmail());
+        backButton=findViewById(R.id.back_button);
 
         if(usuario == null){
             Intent intent = new Intent(ProfileScreen.this, LoginScreen.class);
@@ -64,6 +68,13 @@ public class ProfileScreen extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 Toast.makeText(ProfileScreen.this, "Usuário deslogado com sucesso!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getOnBackPressedDispatcher().onBackPressed();
             }
         });
     }

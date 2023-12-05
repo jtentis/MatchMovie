@@ -10,6 +10,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class RegisterScreen extends AppCompatActivity {
 
     EditText nomeUsuario, emailUsuario, passwordUsuario, passConfUsuario;
+
+    ImageView backButton;
     Button btn_registerUsuario;
     ProgressBar progressBarUsuario;
     FirebaseAuth mAuth;
@@ -51,6 +54,7 @@ public class RegisterScreen extends AppCompatActivity {
         btn_registerUsuario = findViewById(R.id.btn_register);
         progressBarUsuario = findViewById(R.id.progressBar);
         passConfUsuario = findViewById(R.id.password_confirm);
+        backButton=findViewById(R.id.back_button);
 
         btn_registerUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,5 +104,11 @@ public class RegisterScreen extends AppCompatActivity {
             }
         });
 
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        });
     }
 }

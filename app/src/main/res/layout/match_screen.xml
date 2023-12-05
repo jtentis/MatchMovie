@@ -101,4 +101,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bolinhas" />
 
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:alpha=".7"
+        android:background="@drawable/bg_red_rounded"
+        android:gravity="center"
+        android:padding="15dp"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

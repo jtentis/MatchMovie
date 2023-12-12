@@ -1,6 +1,6 @@
 <div class="corpo" align="center"> 
 
-<img src="logo.png" width="200px" height="200px">
+<img src="logo.png" width="200px" height="250px">
 
 #
 ![Static Badge](https://img.shields.io/badge/Horse-Care-D46162)
@@ -11,7 +11,7 @@ Aplicativo mobile feito em JAVA utilizando MVVM com REST API e Retrofit.
 
 A escolha de filmes nunca foi tão fácil!
 
-![](gifs/splash_screen.mp4)
+![](gifs/splash_screen.gif)
 
 # Instalação 🚀
 

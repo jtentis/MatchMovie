@@ -12,12 +12,12 @@ Aplicativo mobile feito em JAVA utilizando MVVM com REST API e Retrofit.
 A escolha de filmes nunca foi tão fácil!
 
 
-<img src="/home/jtentis/Documentos/projetos/MatchMovie/gifs/splash.jpg" width="250" height="550"/>
-<img src="/home/jtentis/Documentos/projetos/MatchMovie/gifs/catalogo.jpg" width="250" height="550"/>
-<img src="/home/jtentis/Documentos/projetos/MatchMovie/gifs/login.jpg" width="250" height="550"/>
-<img src="/home/jtentis/Documentos/projetos/MatchMovie/gifs/registro.jpg" width="250" height="550"/>
-<img src="/home/jtentis/Documentos/projetos/MatchMovie/gifs/profile.jpg" width="250" height="550"/>
-<img src="/home/jtentis/Documentos/projetos/MatchMovie/gifs/match.jpg" width="250" height="550"/>
+<img src="gifs/splash.jpg" width="250" height="550"/>
+<img src="gifs/catalogo.jpg" width="250" height="550"/>
+<img src="gifs/registro.jpg" width="250" height="550"/>
+<img src="gifs/login.jpg" width="250" height="550"/>
+<img src="gifs/profile.jpg" width="250" height="550"/>
+<img src="gifs/match.jpg" width="250" height="550"/>
 
 </br>
 </br>

@@ -1,10 +1,6 @@
 <div class="corpo" align="center"> 
 
-<img src="logo.png" width="150px" height="200px">
-
-</br>
-
-<img src="title.png" style="margin-left: 5%;">
+<img src="Logo.png" width="200px" height="280px">
 
 #
 ![Static Badge](https://img.shields.io/badge/Match-Movie-D46162)

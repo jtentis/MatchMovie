@@ -4,7 +4,7 @@
 
 </br>
 
-<img src="title.png" style="margin-left: 20px;">
+<img src="title.png" style="margin-left: 3%;">
 
 #
 ![Static Badge](https://img.shields.io/badge/Match-Movie-D46162)

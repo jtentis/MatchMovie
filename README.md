@@ -33,6 +33,6 @@ O aplicativo ainda está em desenvolvimento, mas sua ideia é funcionar como 2 f
 
 O 'tinderlike' jogo funcionaria da seguinte forma: dois usuários se conectariam para curtir e descurtir diversos filmes (baseado em um filtro da escolha de ambos), arrastando pra direita e para esquerda, achando um denomiandor comum, quando ambos derem like no mesmo filme.
 
-Foi utilizada a API do [themoviedb.org]() com Retrofit para a disponibilização de filmes no catálogo.
+Foi utilizada a API do [themoviedb.org](https://www.themoviedb.org/) com Retrofit para a disponibilização de filmes no catálogo.
 
 </div>

@@ -3,10 +3,10 @@
     <item
         android:id="@+id/match"
         android:icon="@drawable/match"
-        android:title=""/>
+        android:visible="true" />
 
     <item
         android:id="@+id/profile"
         android:icon="@drawable/person"
-        android:title=""/>
+        android:visible="true" />
 </menu>

@@ -112,6 +112,10 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
             public void onClick(View v) {
                 movieListViewModel.searchMoviePop(1);
                 popular.setText("Populares");
+                btn_pop.setBackground(getDrawable(R.drawable.bg_red_rounded_icons));
+                btn_now_playing.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
+                btn_upcoming.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
+                btn_top_rated.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
             }
         });
         btn_now_playing.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +123,10 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
             public void onClick(View v) {
                 movieListViewModel.searchMovieNowPlaying(1);
                 popular.setText("Nos Cinemas");
+                btn_now_playing.setBackground(getDrawable(R.drawable.bg_red_rounded_icons));
+                btn_pop.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
+                btn_upcoming.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
+                btn_top_rated.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
             }
         });
         btn_top_rated.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +134,10 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
             public void onClick(View v) {
                 movieListViewModel.searchMovieTopRated(1);
                 popular.setText("Mais Votados");
+                btn_top_rated.setBackground(getDrawable(R.drawable.bg_red_rounded_icons));
+                btn_now_playing.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
+                btn_pop.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
+                btn_upcoming.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
             }
         });
         btn_upcoming.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +145,10 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
             public void onClick(View v) {
                 movieListViewModel.searchMovieUpcoming(1);
                 popular.setText("Em Breve");
+                btn_upcoming.setBackground(getDrawable(R.drawable.bg_red_rounded_icons));
+                btn_now_playing.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
+                btn_pop.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
+                btn_top_rated.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
             }
         });
 

@@ -10,33 +10,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/container"
-        />
-    
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="1dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2" />
+
+    </FrameLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="411dp"
+        android:layout_height="45dp"
         android:background="@color/background"
         app:itemHorizontalTranslationEnabled="true"
-        app:menu="@menu/bottom_nav"
-        app:itemIconSize="40dp"
+        app:itemIconSize="30dp"
         app:itemIconTint="@color/hint"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="57dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:spanCount="2" />
+        app:menu="@menu/bottom_nav" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
@@ -58,59 +56,73 @@
         app:queryHint="Procurando algum filme?" />
 
     <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="260dp"
+        android:layout_marginBottom="49dp"
+        android:alpha="0.8"
+        app:layout_constraintBottom_toTopOf="@+id/navigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/bg_black_shadow" />
+
+    <ImageView
         android:id="@+id/btn_pop"
-        android:layout_width="52dp"
+        android:layout_width="70dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="100dp"
-        android:alpha="0.9"
-        android:background="@drawable/bg_black_rounded"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="62dp"
+        android:alpha="1"
+        android:background="@drawable/bg_black_rounded_icons"
         android:gravity="center"
+        android:elevation="2dp"
         android:padding="15dp"
         android:src="@drawable/popular"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/navigationView"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/btn_now_playing"
-        android:layout_width="52dp"
+        android:layout_width="70dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="162dp"
-        android:alpha="0.9"
-        android:background="@drawable/bg_black_rounded"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="10dp"
+        android:alpha="1"
+        android:background="@drawable/bg_black_rounded_icons"
         android:gravity="center"
+        android:elevation="2dp"
         android:padding="15dp"
         android:src="@drawable/now_playing"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_pop"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/btn_top_rated"
-        android:layout_width="52dp"
+        android:layout_width="70dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="222dp"
-        android:alpha="0.9"
-        android:background="@drawable/bg_black_rounded"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="8dp"
+        android:alpha="1"
+        android:background="@drawable/bg_black_rounded_icons"
         android:gravity="center"
+        android:elevation="2dp"
         android:padding="15dp"
         android:src="@drawable/toprated"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_now_playing"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/btn_upcoming"
-        android:layout_width="52dp"
+        android:layout_width="70dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="282dp"
-        android:alpha=".9"
-        android:background="@drawable/bg_black_rounded"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="8dp"
+        android:alpha="1"
+        android:background="@drawable/bg_black_rounded_icons"
         android:gravity="center"
+        android:elevation="2dp"
         android:padding="15dp"
         android:src="@drawable/upcoming"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_top_rated"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView

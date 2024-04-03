@@ -2,6 +2,15 @@ package com.example.matchmovie;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -15,25 +24,13 @@ import com.example.matchmovie.adapters.OnMovieListener;
 import com.example.matchmovie.models.MovieModel;
 import com.example.matchmovie.viewmodels.MovieListViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
-public class MovieListActivity extends Fragment implements OnMovieListener {
+public class movie_list_fragment extends Fragment implements OnMovieListener {
 
-    //recylcer view
     private RecyclerView recyclerView;
     private MovieRecyclerView movieRecyclerAdapter;
     GridLayoutManager gridLayoutManager;
@@ -43,7 +40,13 @@ public class MovieListActivity extends Fragment implements OnMovieListener {
     FirebaseAuth mAuth;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.activity_main, container, false);
         recyclerView = getView().findViewById(R.id.recyclerView);
@@ -76,9 +79,9 @@ public class MovieListActivity extends Fragment implements OnMovieListener {
             public boolean onNavigationItemSelected(MenuItem item) {
                 int itemId = item.getItemId();
                 if (itemId == R.id.profile) {
-                        Intent intent = new Intent(getActivity(), ProfileScreen.class);
-                        startActivity(intent);
-                        return true;
+                    Intent intent = new Intent(getActivity(), ProfileScreen.class);
+                    startActivity(intent);
+                    return true;
                 } else if (itemId == R.id.match) {
                     Intent intent = new Intent(getActivity(), MatchScreen.class);
                     startActivity(intent);
@@ -146,6 +149,7 @@ public class MovieListActivity extends Fragment implements OnMovieListener {
 
         return view;
     }
+
     private void ObservePopularMovies() {
         movieListViewModel.getPop().observe(getActivity(), new Observer<List<MovieModel>>() {
             @Override
@@ -214,7 +218,7 @@ public class MovieListActivity extends Fragment implements OnMovieListener {
                         Log.v("tag", "Título: "+movieModel.getTitle());
                         movieRecyclerAdapter.setmMovies(movieModels);
                     }
-               }
+                }
             }
         });
     }
@@ -227,7 +231,7 @@ public class MovieListActivity extends Fragment implements OnMovieListener {
         recyclerView.setLayoutManager(gridLayoutManager);
     }
 
-        //paginação
+    //paginação
     private void SearchViewPagination(){
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -327,5 +331,4 @@ public class MovieListActivity extends Fragment implements OnMovieListener {
             }
         });
     };
-
 }

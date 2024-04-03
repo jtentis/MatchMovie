@@ -36,7 +36,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnTouchListen
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(LoginScreen.this, MovieListActivity.class);
+            Intent intent = new Intent(LoginScreen.this, movie_list_fragment.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             Toast.makeText(LoginScreen.this, "Login automático feito com sucesso!", Toast.LENGTH_SHORT).show();

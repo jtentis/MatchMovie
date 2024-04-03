@@ -76,12 +76,13 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
 //            finish();
 //        }
 
-        TextView popular=(TextView)findViewById(R.id.txt_popular);
+        TextView filter=(TextView)findViewById(R.id.txt_filter);
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
 
         // pegando dados e executando para filmes populares como pagina incial
         movieListViewModel.searchMoviePop(1);
-        popular.setText("Populares");
+        filter.setText("Populares");
+//        PopPagination();
 
         ImageView btn_pop= (ImageView) findViewById(R.id.btn_pop);
         ImageView btn_now_playing= (ImageView) findViewById(R.id.btn_now_playing);
@@ -110,8 +111,9 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         btn_pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                PopPagination();
                 movieListViewModel.searchMoviePop(1);
-                popular.setText("Populares");
+                filter.setText("Populares");
                 btn_pop.setBackground(getDrawable(R.drawable.bg_red_rounded_icons));
                 btn_now_playing.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
                 btn_upcoming.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
@@ -121,8 +123,9 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         btn_now_playing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                NowPlayingPagination();
                 movieListViewModel.searchMovieNowPlaying(1);
-                popular.setText("Nos Cinemas");
+                filter.setText("Nos Cinemas");
                 btn_now_playing.setBackground(getDrawable(R.drawable.bg_red_rounded_icons));
                 btn_pop.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
                 btn_upcoming.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
@@ -132,8 +135,9 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         btn_top_rated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                TopRatedPagination();
                 movieListViewModel.searchMovieTopRated(1);
-                popular.setText("Mais Votados");
+                filter.setText("Mais Votados");
                 btn_top_rated.setBackground(getDrawable(R.drawable.bg_red_rounded_icons));
                 btn_now_playing.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
                 btn_pop.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
@@ -143,15 +147,15 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         btn_upcoming.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                UpcomingPagination();
                 movieListViewModel.searchMovieUpcoming(1);
-                popular.setText("Em Breve");
+                filter.setText("Em Breve");
                 btn_upcoming.setBackground(getDrawable(R.drawable.bg_red_rounded_icons));
                 btn_now_playing.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
                 btn_pop.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
                 btn_top_rated.setBackground(getDrawable(R.drawable.bg_black_rounded_icons));
             }
         });
-
 
         ConfigureRecyclerView();
         ObserveAnyChange();
@@ -235,22 +239,72 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     }
 
     //5- inicializando o recycler view e adicionando dados a ele
-    private void ConfigureRecyclerView(){
+    private void ConfigureRecyclerView() {
         movieRecyclerAdapter = new MovieRecyclerView(this);
         recyclerView.setAdapter(movieRecyclerAdapter);
         gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
+    }
 
         //paginação
+    private void SearchViewPagination(){
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                if(!recyclerView.canScrollVertically(1)){
+                if (!recyclerView.canScrollVertically(1)) {
                     movieListViewModel.searchNextPage();
                 }
             }
         });
     }
+
+//    private void PopPagination(){
+//        //paginação
+//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+//                if(!recyclerView.canScrollVertically(1)){
+//                    movieListViewModel.searchNextPagePop();
+//                }
+//            }
+//        });
+//    }
+//
+//    private void TopRatedPagination(){
+//        //paginação
+//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+//                if(!recyclerView.canScrollVertically(1)){
+//                    movieListViewModel.searchNextPageTopRated();
+//                }
+//            }
+//        });
+//    }
+//
+//    private void UpcomingPagination(){
+//        //paginação
+//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+//                if(!recyclerView.canScrollVertically(1)){
+//                    movieListViewModel.searchNextPageUpcoming();
+//                }
+//            }
+//        });
+//    }
+//
+//    private void NowPlayingPagination(){
+//        //paginação
+//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+//                if(!recyclerView.canScrollVertically(1)){
+//                    movieListViewModel.searchNextPageNowPlaying();
+//                }
+//            }
+//        });
+//    }
 
     @Override
     public void onMovieClick(int position) {
@@ -270,10 +324,12 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                SearchViewPagination();
                 movieListViewModel.searchMovieApi(
                         query,
                         1
                 );
+                SearchViewPagination();
                 return false;
             }
 

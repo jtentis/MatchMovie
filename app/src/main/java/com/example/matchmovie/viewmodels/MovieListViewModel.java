@@ -58,4 +58,20 @@ public class MovieListViewModel extends ViewModel {
     public void searchNextPage(){
         movieRepository.searchNextPage();
     }
+
+    public void searchNextPagePop(){
+        movieRepository.searchNextPagePop();
+    }
+
+    public void searchNextPageTopRated(){
+        movieRepository.searchNextPageTopRated();
+    }
+
+    public void searchNextPageUpcoming(){
+        movieRepository.searchNextPageUpcoming();
+    }
+
+    public void searchNextPageNowPlaying(){
+        movieRepository.searchNextPageNowPlaying();
+    }
 }

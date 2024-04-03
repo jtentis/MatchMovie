@@ -48,7 +48,7 @@ public class MovieDetails extends AppCompatActivity {
             descDetails.setText(movieModel.getMovie_overview());
             ratingBarDetails.setRating(movieModel.getVote_average()/2);
 
-            Log.v("arroz", "x"+movieModel.getMovie_overview());
+//            Log.v("arroz", "x"+movieModel.getMovie_overview());
 
             Glide.with(this)
                     .load("https://image.tmdb.org/t/p/w500/"+ movieModel.getPoster_path()).into(imageViewDetails);
